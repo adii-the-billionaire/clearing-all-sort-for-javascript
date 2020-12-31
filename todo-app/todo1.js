@@ -30,8 +30,48 @@ document.querySelector('body').appendChild(pit)
            p.textContent = `${serial+1} my work is ${tip.text} nd status of completed is ${tip.completed}`
            document.querySelector('body').appendChild(p)
        })
-       
-    
+    document.querySelector('button').addEventListener('click',(e)=>{
+        e.target.textContent = 'the button is fucking clicked!'
+    })   
+    //how to remove something just like my titllel or body edx
+    //create a button that show ur completed work 
+    //create a button that show uncompleted work okay here is the work
+    //create a button that remove ur list 
+    document.querySelector('#hi').addEventListener('click',(e)=>{
+        todos.forEach((todo,index)=>{
+            const pit = document.createElement('p')
+            pit.textContent = `${index+1}. ${todo.text}`
+            document.querySelector('body').appendChild(pit)
+        })
+
+    })
+    document.querySelector('#hi1').addEventListener('click',(e)=>{
+       const mia =todos.filter((todo)=>{
+           return todo.completed
+       })
+       if(mia){
+           mia.forEach((todo,index)=>{
+               const pit = document.createElement('p')
+               pit.textContent = `${index+1}. ${todo.text}`
+               document.querySelector('body').appendChild(pit)
+           })
+       }
+    })
+    document.querySelector('#hi2').addEventListener('click',(e)=>{
+        const mia =todos.filter((todo)=>{
+            return !todo.completed
+        })
+        if(mia){
+            mia.forEach((todo,index)=>{
+                const pit = document.createElement('p')
+                pit.textContent = `${index+1}. ${todo.text}`
+                document.querySelector('body').appendChild(pit)
+            })
+        }
+    })
+    document.querySelector('#hi1').addEventListener('click',(e)=>{
+        document.querySelector('hi').remove()
+    })
 
 
 
