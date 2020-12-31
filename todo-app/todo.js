@@ -5,3 +5,4 @@ p.forEach((p)=>{
         p.remove()
     }
 })
+//adding element to to our 
