@@ -20,15 +20,15 @@ const filters = {
     hideCompleted: false
 }
 
-const renderTodos = function (todos, filters) {
-    const filteredTodos = todos.filter(function (todo) {
+const renderTodos =  (todos, filters) =>{
+    const filteredTodos = todos.filter( (todo)=> {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
 
         return searchTextMatch && hideCompletedMatch
     })
 
-    const incompleteTodos = filteredTodos.filter(function (todo) {
+    const incompleteTodos = filteredTodos.filter( (todo)=> {
         return !todo.completed
     })
 
@@ -38,21 +38,21 @@ const renderTodos = function (todos, filters) {
     summary.textContent = `You have ${incompleteTodos.length} todos left`
     document.querySelector('#todos').appendChild(summary)
 
-    filteredTodos.forEach(function (todo) {
+    filteredTodos.forEach( (todo)=> {
         const p = document.createElement('p')
         p.textContent = todo.text
         document.querySelector('#todos').appendChild(p)
     })
-}
+} 
 
 renderTodos(todos, filters)
 
-document.querySelector('#search-text').addEventListener('input', function (e) {
+document.querySelector('#search-text').addEventListener('input', (e)=> {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
 
-document.querySelector('#new-todo').addEventListener('submit', function (e) {
+document.querySelector('#new-todo').addEventListener('submit',  (e)=> {
     e.preventDefault()
     todos.push({
         text: e.target.elements.text.value,
@@ -62,12 +62,11 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     e.target.elements.text.value = ''
 })
 
-document.querySelector('#hide-completed').addEventListener('change', function (e) {
+document.querySelector('#hide-completed').addEventListener('change', (e)=> {
     filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })
 
-// 1. Create a checkbox and setup event listener -> "Hide completed"
-// 2. Create new hideCompleted filter (default false)
-// 3. Update hideCompleted an rerender list on checkbox change
-// 4. Setup renderTodos to remove completed items
+document.querySelector('#dropbox').addEventListener('change',(e)=>{
+    console.log(e.target.value)
+})
