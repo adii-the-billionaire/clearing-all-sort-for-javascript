@@ -1,4 +1,4 @@
-const data = [{
+const data1 = [{
     name:'riay',
     age:89
 },
@@ -26,14 +26,23 @@ const sort = (data)=>{
         }
     })
 }
-const data1 = sort(data)
-console.log(data1)
-const fun = (bd,text)=>{
+const data2 = sort(data1)
+// console.log(data1)
+const fuck = (bd,text)=>{
     const teat =bd.filter((bet)=>{
         return bet.name.toLowerCase().includes(text.toLowerCase())
     })
+    document.querySelector('#hi9').innerHTML = ' '
     teat.forEach((ele)=>{
         console.log(ele.name) 
+        const pit = document.createElement('p')
+        pit.textContent = ele.name
+        document.querySelector('#hi9').appendChild(pit)
     })
 }
-fun(data1,'ia')
+// fun(data1,'ia')
+document.querySelector('#hi10').addEventListener('input',(e)=>{
+    var text = e.target.value
+    console.log(text)
+    fuck(data2,text)
+})
