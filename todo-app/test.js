@@ -26,4 +26,14 @@ const sort = (data)=>{
         }
     })
 }
-sort(data)
+const data1 = sort(data)
+console.log(data1)
+const fun = (bd,text)=>{
+    const teat =bd.filter((bet)=>{
+        return bet.name.toLowerCase().includes(text.toLowerCase())
+    })
+    teat.forEach((ele)=>{
+        console.log(ele.name) 
+    })
+}
+fun(data1,'ia')
