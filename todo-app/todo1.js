@@ -110,6 +110,53 @@ document.querySelector('body').appendChild(pit)
         text.text = e.target.value
         fun(todos,text)
     })
+    //suppose we have seraching then after search sort the value here is code
+    const data = [{
+        name:'riay',
+        age:89
+    },
+    {
+        name:'riiia',
+        age:100
+    },
+    {
+        name:'ria',
+        age:90
+    },
+    {
+        name:'riya',
+        age:100
+    }
+]
+const type = {
+    text:''
+}
+const fun1 = (body,type)=>{
+    const serach = body.filter((fil)=>{
+        return fil.name.toLowerCase().includes(type.text.toLowerCase())
+    })
+    const sort = serach.sort((a,b)=>{
+        if(a.name.toLowerCase()<b.name.toLowerCase()){
+            return 1
+        }else if(a.name.toLowerCase()>b.name.toLowerCase()){
+            return -1
+        }else{
+            0
+        }
+    })
+    document.querySelector('#hi8').innerHTML = ''
+    sort.forEach((a)=>{
+        const pit = document.createElement('p')
+        pit.textContent = a.name
+        document.querySelector('#hi8').appendChild(pit)
+    })
+}
+document.querySelector('#hi7').addEventListener('input',(e)=>{
+    text.text = e.target.value
+    fun1(data,text)
+})
+
+
 
 
 
