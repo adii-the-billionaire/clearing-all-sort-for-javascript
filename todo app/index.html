@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form >
-        <p>
-            <label>Todo<input type="text" placeholder="add ur work"></label>
-            <button>Add</button>
-        </p>
-        <p>
-            <lable>Remove todo<input type="text"></lable>
-            <button>Remove</button>
-        </p>
-        <button>remove all todo</button>
-    </form>
-    <p class="bandit">
-        Here is our note:
-    </p>
-</body>
+
+<html>
+    <head></head>
+    <body>
+        <h1>Todos</h1>
+        <input id="search-text" type="text" placeholder="Filter todos">
+        <label>
+            <input type="checkbox" id="hide-completed"> Hide completed
+        </label>
+        <div id="todos"></div>
+        <form id="new-todo">
+            <input type="text" placeholder="Something to do" name="text">
+            <button>Add Todo</button>
+        </form>
+        <script src="todo-app.js"></script>
+    </body>
 </html>
