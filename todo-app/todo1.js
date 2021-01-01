@@ -69,9 +69,49 @@ document.querySelector('body').appendChild(pit)
             })
         }
     })
-    document.querySelector('#hi1').addEventListener('click',(e)=>{
-        document.querySelector('hi').remove()
+    document.querySelector('#hi3').addEventListener('click',(e)=>{
+        document.querySelector('#hi').remove()
     })
+    document.querySelector('input').addEventListener('change',(e)=>{
+        console.log(e)
+        console.log(e.target.value)
+    })
+    document.querySelector('input').addEventListener('input',(e)=>{
+        console.log(e)
+        console.log(e.target.value)
+    })
+    document.querySelector('#hi4').addEventListener('click',(e)=>{
+        const pit = document.createElement('h2')
+        const si  = document.querySelector("input")
+        pit.textContent = si.value
+        si.onfocus = true
+        document.querySelector("body").appendChild(pit)
+    })
+    document.querySelector("input").addEventListener('click',(e)=>{
+        e.target.value = ''
+        
+    })
+    
+    const text = {
+        text:''
+    }
+    const fun = (body,text)=>{
+        const sia = body.filter((bdo)=>{
+            return bdo.text.toLowerCase().includes(text.text.toLowerCase())
+        })  
+        document.querySelector('#hi6').innerHTML =''
+        sia.forEach((yeap)=>{
+            const pit = document.createElement('p')
+            pit.textContent = yeap.text
+            document.querySelector('#hi6').appendChild(pit)
+        })
+    }
+    document.querySelector('#hi5').addEventListener('input',(e)=>{
+        text.text = e.target.value
+        fun(todos,text)
+    })
+
+
 
 
 
