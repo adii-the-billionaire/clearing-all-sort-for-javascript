@@ -32,7 +32,7 @@ const fuck = (bd,text)=>{
     const teat =bd.filter((bet)=>{
         return bet.name.toLowerCase().includes(text.toLowerCase())
     })
-    document.querySelector('#hi9').innerHTML = ' '
+    document.querySelector('#hi9').innerHTML = ''
     teat.forEach((ele)=>{
         console.log(ele.name) 
         const pit = document.createElement('p')
@@ -46,3 +46,7 @@ document.querySelector('#hi10').addEventListener('input',(e)=>{
     console.log(text)
     fuck(data2,text)
 })
+
+
+
+

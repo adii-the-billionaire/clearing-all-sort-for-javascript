@@ -155,6 +155,10 @@ document.querySelector('#hi7').addEventListener('input',(e)=>{
     text.text = e.target.value
     fun1(data,text)
 })
+document.querySelector('#name-form').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    console.log(e.target.elements.firstname.value)
+})
 
 
 
