@@ -41,3 +41,14 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
+//here is fetching local storage so let's go
+console.log(localStorage.getItem('mia'))
+const user = {
+    name:'iia',
+    age:234
+}
+const mai = JSON.stringify(user)
+localStorage.setItem('user',mai)
+console.log(localStorage.getItem('user'))
+const paser = JSON.parse(localStorage.getItem('user'))
+console.log(`${paser.name} and here age is ${paser.age}`)
