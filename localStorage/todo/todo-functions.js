@@ -31,6 +31,8 @@ const renderTodos =  (todos, filters)=> {
         return searchTextMatch && hideCompletedMatch
     })
 
+    debugger
+
     const incompleteTodos = filteredTodos.filter(function (todo) {
         return !todo.completed
     })
