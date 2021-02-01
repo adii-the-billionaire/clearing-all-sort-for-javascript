@@ -1,0 +1,13 @@
+form {
+    width: 300px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 120px;
+  }
