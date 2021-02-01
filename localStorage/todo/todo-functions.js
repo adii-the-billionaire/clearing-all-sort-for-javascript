@@ -1,5 +1,4 @@
 // Fetch existing todos from localStorage
-console.log(uuidv4())
 const getSavedTodos = function () {
     const todosJSON = localStorage.getItem('todos')
 
@@ -15,12 +14,25 @@ const saveTodos = function (todos) {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
-const removeTodo = (id)=>{
-    const fiit = todos.findIndex((todo)=>{
-        return todo.id ===id
+// Remove todo by id
+const removeTodo = function (id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id
     })
-    if(fiit>-1){
-        todos.splice(fiit,1)
+
+    if (todoIndex > -1) {
+        todos.splice(todoIndex, 1)
+    }
+}
+
+// Toggle the completed value for a given todo
+const toggleTodo = function (id) {
+    const todo = todos.find(function (todo) {
+        return todo.id === id
+    })
+
+    if (todo !== undefined) {
+        todo.completed = !todo.completed
     }
 }
 
@@ -45,15 +57,6 @@ const renderTodos = function (todos, filters) {
     })
 }
 
-const toggleTodo = (id)=>{
-    const fis = todos.find((todo)=>{
-        return todo.id ===id
-    })
-    if(fis!==undefined){
-        fis.completed = !fis.completed
-    }
-}
-
 // Get the DOM elements for an individual note
 const generateTodoDOM = function (todo) {
     const todoEl = document.createElement('div')
@@ -65,12 +68,12 @@ const generateTodoDOM = function (todo) {
     checkbox.setAttribute('type', 'checkbox')
     checkbox.checked = todo.completed
     todoEl.appendChild(checkbox)
-    checkbox.addEventListener('change',()=>{
-        //todo.completed = e.target.checked
+    checkbox.addEventListener('change', function () {
         toggleTodo(todo.id)
         saveTodos(todos)
-        renderTodos(todos,filters)
+        renderTodos(todos, filters)
     })
+
     // Setup the todo text
     todoText.textContent = todo.text
     todoEl.appendChild(todoText)
@@ -78,10 +81,10 @@ const generateTodoDOM = function (todo) {
     // Setup the remove button
     removeButton.textContent = 'x'
     todoEl.appendChild(removeButton)
-    removeButton.addEventListener('click',()=>{
+    removeButton.addEventListener('click', function () {
         removeTodo(todo.id)
         saveTodos(todos)
-        renderTodos(todos,filters)
+        renderTodos(todos, filters)
     })
 
     return todoEl
