@@ -34,6 +34,19 @@ refreshPage.addEventListener('click',(e)=>{
    window.location.reload()
 })
 
+window.addEventListener('storage',(e)=>{
+    if(e.key==='notes'){
+        notes = JSON.parse(e.newValue)
+        note = notes.find((note)=>{
+            return note.id ===  noteId
+        })
+        if(note===undefined){
+            location.assign('http://127.0.0.1:5500/localStorage/notes/')
+        }
+        titleElement.value = note.title
+        bodyElement.value = note.body
+    }
+})
 
 
 

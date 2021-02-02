@@ -25,3 +25,9 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
+window.addEventListener('storage',(e)=>{
+    if(e.key==='notes'){
+        notes = JSON.parse(e.newValue)
+        renderNotes(notes,filters)
+    }
+})
