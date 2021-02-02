@@ -1,7 +1,7 @@
 const notes = getSavedNotes()
 
 const filters = {
-    searchText: ''
+    searchText: '',
 }
 
 renderNotes(notes, filters)
