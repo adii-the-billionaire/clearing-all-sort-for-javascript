@@ -18,3 +18,4 @@ const product2 = new Object()
 product2.name = "riya"
 product2.class = 'djhff'
 console.log(product2)
+//excess a method
