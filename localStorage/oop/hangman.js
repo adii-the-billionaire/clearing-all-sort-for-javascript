@@ -25,20 +25,30 @@ Hangman.prototype.makeGuess = function(guess){
         this.guessedLetters.push(guess)
     }
     if(isUnique && isBadGuess ){
-        this.remainingGuesses>0?this.remainingGuesses-- :this.remainingGuesses="ur value is just over"
+        this.remainingGuesses>0?this.remainingGuesses-- :this.remainingGuesses=" over"
     }
 }
 
-const game1 = new Hangman('cccc',2)
+
+
+const game1 = new Hangman('cia',2)
 console.log(game1.getPuzzle())
 // game1.makeGuess('s')
 // game1.makeGuess('p')
 //console.log(game1.remainingGuesses)
 //understanding of key pressing in windows so let's begin now
+
+
+const mia = document.querySelector('#sia')
+const nip = document.querySelector('#nip')
+nip.textContent = ` your remaining guess is ${game1.remainingGuesses}`
+mia.textContent = game1.getPuzzle()
 window.addEventListener('keypress',(e)=>{
     // console.log(e)
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
     console.log(game1.getPuzzle())
     console.log(game1.remainingGuesses)
+    mia.textContent = game1.getPuzzle()
+    nip.textContent = ` your remaining guess is ${game1.remainingGuesses}`
 })
