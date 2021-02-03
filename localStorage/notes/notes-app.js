@@ -2,6 +2,7 @@ const notes = getSavedNotes()
 
 const filters = {
     searchText: '',
+    sortBy:'byEdited'
 }
 
 renderNotes(notes, filters)
@@ -11,7 +12,10 @@ const _id = uuidv4()
     notes.push({
         id: _id,
         title: '',
-        body: ''
+        body: '',
+        createdAt:timestamp,
+        updatedAt:timestamp,
+
     })
     saveNotes(notes)
     location.assign(`http://127.0.0.1:5500/localStorage/notes/edit.html#${_id}`)
@@ -24,6 +28,8 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 
 document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value)
+    filters.sortBy = e.target.value
+    renderNotes(notes,filters)
 })
 window.addEventListener('storage',(e)=>{
     if(e.key==='notes'){
