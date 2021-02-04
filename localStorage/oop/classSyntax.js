@@ -7,15 +7,15 @@ class PersonClass{
         this.age = age
         this.like = like
     }
-    getBio(){
+    get getBio(){
          let bio = `${this.firstName} is ${this.age}`
          this.like.forEach((like)=>{
              bio = bio + `${this.firstName} likes ${this.like}`
          })
          return bio
     }
-    setName(name){
-         const names = name.split(' ')
+    set setName(name){
+        const names = name.split(' ')
         this.firstName= names[0]
         this.lastName = names[1]
     }
@@ -28,7 +28,7 @@ class Employee extends PersonClass{
          super(firstName,lastName,age,likes)
          this.position = position//that makes this employee class unique     }
    }
-   getBio(){
+   get getBio(){
        //employees version of get bio
        return `${this.firstName} ${this.lastName} is a ${this.position}`
    }
@@ -36,9 +36,9 @@ class Employee extends PersonClass{
 
 const myperson1  =new Employee('sia','tia',90,'hacker',['ride','bike'])
 console.log(myperson1)
-console.log(myperson1.getBio())
-myperson1.setName('Adii Shukla')
-console.log(myperson1.getBio())
+console.log(myperson1.getBio)
+myperson1.setName = 'adii shukla'
+console.log(myperson1.getBio)
 // const myPerson = new PersonClass('adii','shukla',323,['running','bike riding'])
 // console.log(myPerson)
 // console.log(myPerson.getBio())

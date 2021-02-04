@@ -9,7 +9,7 @@ class Student{
     updateGrade(change){
         this.grade+=change
     }
-    getBio(){
+    get getBio(){
         const status = this.grade>=20?'passing':'failing'
         return `${this.firstName} is ${status} the class.`
     }
@@ -17,3 +17,4 @@ class Student{
 
 const me = new Student('adii','shukla',20,88,['riding','singing'])
 console.log(me)
+console.log(me.getBio)
