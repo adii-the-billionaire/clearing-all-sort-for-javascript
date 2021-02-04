@@ -6,7 +6,7 @@ class Hangman {
         this.status = 'playing'
     }
 
-    getStatusMessage(){
+    get getStatusMessage(){
         if(this.status ==='playing'){
             return `Guesses left: ${this.remainingGuesses}`
         }else if(this.status==='failed'){
@@ -52,8 +52,8 @@ class Hangman {
         })
         return puzzle
     }
-
-    makeGuess(){
+            
+    set makeGuess(guess){
         guess = guess.toLowerCase()
         
         const isUnique = !this.guessedLetters.includes(guess)
