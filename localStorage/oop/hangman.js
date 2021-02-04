@@ -17,7 +17,7 @@ Hangman.prototype.getStatusMessage = function(){
 
 Hangman.prototype.calculateStatus = function(){
     const finished = this.word.every((letter)=>{
-        return this.guessedLetters.includes(letter)
+        return this.guessedLetters.includes(letter)|| letter===' '
     })
     // const lettersUnguessed = this.word.filter((letter)=>{
     //     return !this.guessedLetters.includes(letter)
@@ -43,7 +43,7 @@ Hangman.prototype.calculateStatus = function(){
 Hangman.prototype.getPuzzle = function(){
     let puzzle = ''
     this.word.forEach((letter)=>{
-        if(this.guessedLetters.includes(letter)){
+        if(this.guessedLetters.includes(letter)||letter===' '){
              puzzle+=letter
         }else{
             puzzle+='*'
