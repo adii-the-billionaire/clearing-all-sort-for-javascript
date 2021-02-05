@@ -19,6 +19,14 @@ window.addEventListener('keypress',(e)=>{
     sia.textContent = game1.getStatusMessage
 })
 
+getCountry('IN',(error,data)=>{
+    if(error){
+        console.log(error)
+    }else{
+        console.log(data)
+    }
+})
+
 getPuzzle((puzzle,error)=>{
     if(error){
         console.log(error)
