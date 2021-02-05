@@ -18,3 +18,8 @@ window.addEventListener('keypress',(e)=>{
     nip.textContent = ` your remaining guess is ${game1.remainingGuesses}`
     sia.textContent = game1.getStatusMessage
 })
+
+getPuzzle((puzzle)=>{
+    console.log(puzzle)
+})
+//here is we are using arguement as function that become callback so let's start the 
