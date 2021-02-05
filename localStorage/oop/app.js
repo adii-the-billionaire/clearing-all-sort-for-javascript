@@ -19,7 +19,11 @@ window.addEventListener('keypress',(e)=>{
     sia.textContent = game1.getStatusMessage
 })
 
-getPuzzle((puzzle)=>{
-    console.log(puzzle)
+getPuzzle((puzzle,error)=>{
+    if(error){
+        console.log(error)
+    }else{
+        console.log(puzzle)
+    }
 })
 //here is we are using arguement as function that become callback so let's start the 
