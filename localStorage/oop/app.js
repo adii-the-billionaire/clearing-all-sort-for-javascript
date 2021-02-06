@@ -19,19 +19,43 @@ window.addEventListener('keypress',(e)=>{
     sia.textContent = game1.getStatusMessage
 })
 
-getCountry('IN',(error,data)=>{
-    if(error){
-        console.log(error)
-    }else{
-        console.log(data)
-    }
-})
+// getPuzzle.then((data)=>{
+//     console.log(data)
+// }).catch((e)=>{
+//     console.log(e)
+// })
 
-getPuzzle((puzzle,error)=>{
-    if(error){
-        console.log(error)
-    }else{
-        console.log(puzzle)
-    }
-})
+// getCountry.then((data)=>{
+//     console.log(data)
+// }).catch((e)=>{
+//     console.log(e)
+// })
+
+// fetch('http://puzzle.mead.io/puzzle').then((response)=>{
+//     console.log(response)
+//     return response.json()
+// }).then((data)=>{
+//     console.log(typeof data)
+//     console.log(data)
+//        console.log(data.puzzle)
+// }).catch((e)=>{
+//     console.log(e)
+// })
+
 //here is we are using arguement as function that become callback so let's start the 
+const getLocation = ()=>{
+    return fetch('http://ipinfo.io/json?token=ce6d62364d5c83').then((response)=>{
+        if(response.status===200){
+            return response.json()
+        }else{
+            throw new Error('error is error')
+        }
+    })
+}
+getLocation().then((data)=>{
+    console.log(data)
+    console.log(data.country)
+    getCountry(`${data.country}`)
+}).catch((e)=>{
+    console.log(e)
+})
