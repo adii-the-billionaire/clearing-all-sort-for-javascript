@@ -7,19 +7,31 @@ const dataReturn = (num)=>new Promise((resolve,reject)=>{
         }
     })
 } )
-
 dataReturn(2).then((data)=>{
+    return dataReturn(data)
+}).then((data)=>{
+    return dataReturn(data)
+}).then((data)=>{
+    return dataReturn(data)
+}).then((data)=>{
     console.log(data)
-    dataReturn(data).then((data)=>{
-        console.log(data)
-        dataReturn(data).then((data)=>{
-            console.log(data)
-        }).catch((e)=>{
-            console.log(e)
-        })
-    }).catch((e)=>{
-        console.log(e)
-    })
 }).catch((e)=>{
     console.log(e)
 })
+
+// dataReturn(2).then((data)=>{
+//     console.log(data)
+//     dataReturn(data).then((data)=>{
+//         console.log(data)
+//         dataReturn(data).then((data)=>{
+//             console.log(data)
+//         }).catch((e)=>{
+//             console.log(e)
+//         })
+//     }).catch((e)=>{
+//         console.log(e)
+//     })
+// }).catch((e)=>{
+//     console.log(e)
+// })
+//how to produce single solution without iteration
