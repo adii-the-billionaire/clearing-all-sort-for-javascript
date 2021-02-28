@@ -50,7 +50,6 @@
 //  // Run displayCount() once as soon as the page loads so the clock is displayed
 //  displayCount();
 let stop
-document.querySelector('.clock').textContent = "00:00:00"
 function display(){
     let date = new Date()
     let time = date.toLocaleTimeString()
