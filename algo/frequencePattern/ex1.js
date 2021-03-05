@@ -11,3 +11,4 @@ function same(arr1,arr2){
     }
     return true
 }
+//this have time complexity on^2 so let think again 

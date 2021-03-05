@@ -12,3 +12,4 @@ function unique(array){
 const mia = unique([2,1,2,3,4,2222,1,9,0])
 console.log(mia)
 //so for this error we have to assigning the new value 
+///this is possible when arrays is sorted
