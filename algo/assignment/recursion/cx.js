@@ -1,3 +1,11 @@
-const arr = ['mdmdm', 'djdjdj', 'dkdkdk']
-const tip = arr.slice(1)
-console.log(tip)
+//how to capitallize
+function nestedEvenSum(obj, sum = 0) {
+    for (var key in obj) {
+        if (typeof obj[key] === 'object') {
+            sum += nestedEvenSum(obj[key]);
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
+            sum += obj[key];
+        }
+        return sum;
+    }
+}

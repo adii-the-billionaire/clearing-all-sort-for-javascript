@@ -5,6 +5,6 @@ function countDown(num) {
     }
     console.log(num)
     num--
-    return countDown(num)
+    countDown(num)
 }
 countDown(7)
